@@ -1,0 +1,86 @@
+@charset "UTF-8";
+html body div a{
+    margin: 0;
+    padding: 0;
+}
+.dialog-content{
+    width: 700px;
+    height: 500px;
+
+}
+.dialog-back{
+    width: 700px;
+    height: 500px;
+    background-color: #9a9a94;
+    position: absolute;
+}
+.dialog-container{
+    border: 1px solid gray;
+    border-radius: 15px;
+    width: 300px;
+    height: 200px;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    overflow: hidden;
+}
+.dialog-header{
+    width: 303px;
+    height: 40px;
+    background-color: #d5d5cf;
+    position: relative;
+}
+.dialog-close{
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    text-align: center;
+    top: 10px;
+    right: 10px;
+}
+.dialog-close:after{
+    position: relative;
+    content: 'X';
+    top: 2px;
+}
+.dialog-close:hover{
+    border-radius: 25px;
+    background-color: #d4001c;
+    color: white;
+    cursor: pointer;
+}
+.table-content{
+    font-family:Arial ;
+    text-align:center;
+}
+.flex-wrap{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+}
+.flex-con{
+    flex: 1;
+    -webkit-flex:1 ;
+    -webkit-box:1;
+}
+.dialog-active{
+    top: 0;
+    opacity: 1;
+
+}
+.button-content{
+    width:100px;
+    height: 25px;
+    border: 1px solid #5a5a5a;
+    background-color: #d5d5cf;
+    border-radius: 25px;
+    margin: 10px auto;
+}
+.button-content:hover{
+    background-color: aliceblue;
+}

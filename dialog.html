@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹窗</title>
+    <link rel="stylesheet" href="dialog.css"/>
+</head>
+<body>
+    <!--弹窗样式写出来-->
+    <div class="content" id="asd">
+
+    </div>
+    <button type="button" class="button-content" id="button">Click</button>
+
+    <!--<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>-->
+    <script src="dialog.js" type="text/javascript"></script>
+    <script>
+        var dia=new dialog(
+            {
+                width:302,
+                height:202,
+                contentid:'asd',
+                // contentName:'content',
+                content:"<p class=\"table-content\">You should know that.</p>"
+            }
+        );
+        // function showDialog() {
+        //     dia.showDialog();
+        // }
+    </script>
+</body>
+</html>

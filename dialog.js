@@ -62,7 +62,7 @@ function dialog(param){
             }
             elem.className=classArr.join(" ");
         },
-        find:function (elem,target) {
+        find:function (elem,target) { //这个才是我写的
             var that=this;
 
             for (var i=0;i<elem.childNodes.length;i++){
@@ -70,7 +70,8 @@ function dialog(param){
                 if(elem.childNodes[i].nodeName&&elem.childNodes[i].nodeName!=='#text'){
                     if (elem.childNodes[i].className&&target.substr(0,1)==='.')
                     {
-                        if (elem.childNodes[i].className===target.substr(1,target.length))
+                        var elemArr=elem.childNodes[i].className.split(' ');
+                        if (elemArr.indexOf(target.substr(1,target.length))===0)
                             return elem.childNodes[i];
                         else
                             return that.find(elem.childNodes[i],target);
@@ -95,7 +96,6 @@ function dialog(param){
     this.contentid=param.contentid;
     this.init=function(){
         this.getDom();
-        this.showDialog();
         this.renderContent();
         this.clickEvent();
     };
@@ -113,20 +113,20 @@ function dialog(param){
     };
     //显示弹窗
     this.showDialog=function(){
-        this.renderContent();
-        // console.log(dialogNum.find(this.contentidDom,'.dialog-content'));
+        console.log(dialogNum.find(this.contentidDom,'.dialog-content'));
         dialogNum.addClass(dialogNum.find(this.contentidDom,'.dialog-content'),'dialog-active');
     };
     //关闭弹窗
     this.closeDialog=function(){
+        console.log(dialogNum.find(this.contentidDom,'.dialog-content'));
         dialogNum.removeClass(dialogNum.find(this.contentidDom,'.dialog-content'),'dialog-active');
     };
     this.clickEvent=function () {
         // console.log('asd')
         var that=this;
-
+        console.log(document.getElementsByClassName('dialog-close')[0]);
         document.getElementsByClassName('dialog-close')[0].addEventListener('click',function () {
-            console.log('asd');
+            // console.log('asd');
             that.closeDialog();
         });
     };

@@ -6,7 +6,7 @@ html body div a{
 .dialog-content{
     width: 700px;
     height: 500px;
-
+    opacity:0;
 }
 .dialog-back{
     width: 700px;

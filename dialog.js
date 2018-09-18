@@ -47,7 +47,7 @@ function dialog(param){
                     classArr.push(className);
             }
             //利用join函数把数组里面的数值转化为字符串，再重新赋值给elem
-            elem.className=className.join(" ");
+            elem.className=classArr.join(" ");
         },
 
         removeClass:function(elem,className){
@@ -58,13 +58,15 @@ function dialog(param){
                 classArr=elem.class.split(" ");
             for (var x in classArr){
                 if (classArr[x].trim()===className)
-                    classArr.splice(x,1);
+                    classArr.splice(x);
             }
             elem.className=classArr.join(" ");
         },
         find:function (elem,target) {
             var that=this;
+
             for (var i=0;i<elem.childNodes.length;i++){
+                // console.log(elem.childNodes);
                 if(elem.childNodes[i].nodeName&&elem.childNodes[i].nodeName!=='#text'){
                     if (elem.childNodes[i].className&&target.substr(0,1)==='.')
                     {
@@ -95,6 +97,7 @@ function dialog(param){
         this.getDom();
         this.showDialog();
         this.renderContent();
+        this.clickEvent();
     };
     //利用className获取dom
     this.getDom=function(){
@@ -110,16 +113,23 @@ function dialog(param){
     };
     //显示弹窗
     this.showDialog=function(){
-        dialogNum.addClass(dialogNum.find(this.contentidDom,'.dialog-conent'),'.dialog-active');
+        this.renderContent();
+        // console.log(dialogNum.find(this.contentidDom,'.dialog-content'));
+        dialogNum.addClass(dialogNum.find(this.contentidDom,'.dialog-content'),'dialog-active');
     };
     //关闭弹窗
     this.closeDialog=function(){
-        dialogNum.find(this.contentidDom,'.dialog-content');
-        dialogNum.removeClass(dialogNum.find(this.contentidDom,'.dialog-conent'),'.dialog-active');
+        dialogNum.removeClass(dialogNum.find(this.contentidDom,'.dialog-content'),'dialog-active');
     };
     this.clickEvent=function () {
-        
-    }
+        // console.log('asd')
+        var that=this;
+
+        document.getElementsByClassName('dialog-close')[0].addEventListener('click',function () {
+            console.log('asd');
+            that.closeDialog();
+        });
+    };
     this.init();
     return this;
 }
